@@ -25,4 +25,8 @@ export const GlobalStyle = createGlobalStyle`
   button {
     border: 0;
   }
+
+  ul {
+    list-style: none;
+  }
 `;

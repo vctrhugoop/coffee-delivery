@@ -22,14 +22,14 @@ export function Home() {
           <UlContainer>
             <div>
               <li>
-                <IconHeroContainer bgIconColor='yellowDark'>
+                <IconHeroContainer $bgiconcolor='yellowDark'>
                   <ShoppingCart size={16} weight='fill' />
                 </IconHeroContainer>
                 Compra simples e segura
               </li>
 
               <li>
-                <IconHeroContainer bgIconColor='yellow'>
+                <IconHeroContainer $bgiconcolor='yellow'>
                   <Timer size={16} weight='fill' />
                 </IconHeroContainer>
                 Entrega rápida e rastreada
@@ -37,13 +37,13 @@ export function Home() {
             </div>
             <div>
               <li>
-                <IconHeroContainer bgIconColor='gray'>
+                <IconHeroContainer $bgiconcolor='gray'>
                   <Package size={16} weight='fill' />
                 </IconHeroContainer>
                 Embalagem mantém o café intacto
               </li>
               <li>
-                <IconHeroContainer bgIconColor='purple'>
+                <IconHeroContainer $bgiconcolor='purple'>
                   <Coffee size={16} weight='fill' />
                 </IconHeroContainer>
                 O café chega fresquinho até você

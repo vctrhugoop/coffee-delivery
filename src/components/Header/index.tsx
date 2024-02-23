@@ -6,7 +6,7 @@ import { CartButton } from './components/CartButton';
 
 export function Header() {
   return (
-    <HeaderContainer>
+    <HeaderContainer className='container'>
       <img src={Logo} />
 
       <SideMenuContainer>

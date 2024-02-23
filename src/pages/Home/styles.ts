@@ -1,9 +1,29 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const HomeContainer = styled.div``;
+import { rgba } from 'polished';
+import background from '../../assets/Background.png';
+
+export const HomeContainer = styled.div`
+  width: 100%;
+`;
 
 export const HeroContainer = styled.section`
+  width: 100%;
+  background: ${({ theme }) => css`url(${background}) no-repeat center,
+  linear-gradient(
+        0deg,
+        ${theme['base-background']} 0%,
+        ${rgba(theme['base-background'], 0.2)} 50%,
+        ${theme['base-background']} 100%
+      )`};
+
+  background-size: cover;
+
   padding: 9.4rem 0;
+`;
+
+export const HeroContent = styled.div`
+  padding: 0 2rem;
 
   h1 {
     font-family: 'Baloo 2', sans-serif;

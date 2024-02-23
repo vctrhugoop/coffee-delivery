@@ -9,12 +9,12 @@ export const HeroContainer = styled.section`
     font-family: 'Baloo 2', sans-serif;
     font-weight: 800;
     line-height: 130%;
-    color: ${(props) => props.theme['base-title']};
+    color: ${({ theme }) => theme['base-title']};
   }
 
   p {
     line-height: 130%;
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${({ theme }) => theme['base-text']};
     margin: 1.6rem 0 5rem;
   }
 
@@ -44,7 +44,7 @@ export const HeroContainer = styled.section`
 
 export const UlContainer = styled.ul`
   li {
-    color: ${(props) => props.theme['base-text']};
+    color: ${({ theme }) => theme['base-text']};
 
     display: flex;
     align-items: center;
@@ -66,13 +66,14 @@ const BG_ICON_COLOR = {
 } as const;
 
 interface BgIconColorProps {
-  bgIconColor: keyof typeof BG_ICON_COLOR;
+  $bgiconcolor: keyof typeof BG_ICON_COLOR;
 }
 
 export const IconHeroContainer = styled.div<BgIconColorProps>`
-  color: ${(props) => props.theme.white};
+  color: ${({ theme }) => theme.white};
 
-  background-color: ${(props) => props.theme[BG_ICON_COLOR[props.bgIconColor]]};
+  background-color: ${(props) =>
+    props.theme[BG_ICON_COLOR[props.$bgiconcolor]]};
   border-radius: 50%;
 
   padding: 0.8rem;

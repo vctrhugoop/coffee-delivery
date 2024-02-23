@@ -7,7 +7,6 @@ import {
 } from './styles';
 
 import HeroImage from '../../assets/HeroImage.png';
-import { CoffeeList } from './components/CoffeeList';
 
 export function Home() {
   return (
@@ -53,7 +52,6 @@ export function Home() {
         </div>
         <img src={HeroImage} />
       </HeroContainer>
-      <CoffeeList />
     </HomeContainer>
   );
 }

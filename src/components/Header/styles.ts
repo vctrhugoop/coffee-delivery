@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 3.2rem 2rem;
 `;
 
 export const SideMenuContainer = styled.div`
@@ -17,14 +18,14 @@ export const SideMenuContainer = styled.div`
     gap: 0.4rem;
     padding: 0.8rem;
 
-    background-color: ${(props) => props.theme['purple-200']};
+    background-color: ${({ theme }) => theme['purple-200']};
     border-radius: 6px;
 
     font-size: 1.4rem;
-    color: ${(props) => props.theme['purple-700']};
+    color: ${({ theme }) => theme['purple-700']};
 
     svg {
-      color: ${(props) => props.theme['purple-500']};
+      color: ${({ theme }) => theme['purple-500']};
     }
   }
 `;

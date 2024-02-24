@@ -53,6 +53,17 @@ export const HeroContent = styled.div`
     h1 {
       font-size: 4.8rem;
     }
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    h1 {
+      font-size: 4.8rem;
+    }
 
     img {
       display: block;

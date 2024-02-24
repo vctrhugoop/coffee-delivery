@@ -1,16 +1,19 @@
-import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
 import {
   HeroContainer,
   HeroContent,
   HomeContainer,
-  IconHeroContainer,
-  UlContainer,
+  InfoContainer,
 } from './styles';
 
+import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
+import { useTheme } from 'styled-components';
 import HeroImage from '../../assets/HeroImage.png';
+
+import { InfoWithIcon } from '../../components/InfoWithIcon';
 import { CoffeeList } from './components/CoffeeList';
 
 export function Home() {
+  const { colors } = useTheme();
   return (
     <HomeContainer>
       <HeroContainer>
@@ -21,37 +24,28 @@ export function Home() {
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora
             </p>
-            <UlContainer>
-              <div>
-                <li>
-                  <IconHeroContainer $bgiconcolor='yellowDark'>
-                    <ShoppingCart size={16} weight='fill' />
-                  </IconHeroContainer>
-                  Compra simples e segura
-                </li>
-
-                <li>
-                  <IconHeroContainer $bgiconcolor='yellow'>
-                    <Timer size={16} weight='fill' />
-                  </IconHeroContainer>
-                  Entrega rápida e rastreada
-                </li>
-              </div>
-              <div>
-                <li>
-                  <IconHeroContainer $bgiconcolor='gray'>
-                    <Package size={16} weight='fill' />
-                  </IconHeroContainer>
-                  Embalagem mantém o café intacto
-                </li>
-                <li>
-                  <IconHeroContainer $bgiconcolor='purple'>
-                    <Coffee size={16} weight='fill' />
-                  </IconHeroContainer>
-                  O café chega fresquinho até você
-                </li>
-              </div>
-            </UlContainer>
+            <InfoContainer>
+              <InfoWithIcon
+                iconBg={colors['yellow-700']}
+                icon={<ShoppingCart weight='fill' size={16} />}
+                text='Compra simples e segura'
+              />
+              <InfoWithIcon
+                iconBg={colors['base-text']}
+                icon={<Package weight='fill' size={16} />}
+                text='Embalagem mantém o café intacto'
+              />
+              <InfoWithIcon
+                iconBg={colors['yellow-500']}
+                icon={<Timer weight='fill' size={16} />}
+                text='Entrega rápida e rastreada'
+              />
+              <InfoWithIcon
+                iconBg={colors['purple-500']}
+                icon={<Coffee weight='fill' size={16} />}
+                text='O café chega fresquinho até você'
+              />
+            </InfoContainer>
           </div>
           <img src={HeroImage} />
         </HeroContent>

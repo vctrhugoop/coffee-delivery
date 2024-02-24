@@ -1,11 +1,12 @@
-import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react';
+import { ShoppingCart } from '@phosphor-icons/react';
 import { Button } from '../../../../components/Button';
+import { QuantityInput } from '../../../../components/QuantityInput';
 import { coffees } from '../../../../database/coffee';
 import {
   CardCoffee,
+  CardCoffeeAddCart,
   CardCoffeeDescription,
   CardCoffeeFooter,
-  CardCoffeeFooterSide,
   CardCoffeeImage,
   CardCoffeeInformations,
   CardCoffeeName,
@@ -47,16 +48,12 @@ export function CoffeeList() {
               <CardCoffeePrice>
                 R$ <span>{coffee.price}</span>
               </CardCoffeePrice>
-              <CardCoffeeFooterSide>
-                <div>
-                  <Minus />
-                  1
-                  <Plus />
-                </div>
+              <CardCoffeeAddCart>
+                <QuantityInput />
                 <Button variant='icon'>
                   <ShoppingCart size={22} weight='fill' />
                 </Button>
-              </CardCoffeeFooterSide>
+              </CardCoffeeAddCart>
             </CardCoffeeFooter>
           </CardCoffee>
         );

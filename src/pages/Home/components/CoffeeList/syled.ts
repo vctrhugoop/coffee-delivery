@@ -89,7 +89,8 @@ export const CardCoffeePrice = styled.div`
   }
 `;
 
-export const CardCoffeeFooterSide = styled.div`
+export const CardCoffeeAddCart = styled.div`
+  width: 12rem;
   display: flex;
   align-items: center;
   justify-items: center;

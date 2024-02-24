@@ -19,7 +19,7 @@ export const CardCoffee = styled.div`
   width: 25rem;
   height: 31rem;
   padding: 2rem;
-  background-color: ${({ theme }) => theme['base-card']};
+  background-color: ${({ theme }) => theme.colors['base-card']};
 
   border-radius: 6px 36px;
 `;
@@ -37,13 +37,13 @@ export const CardCoffeeTagContianer = styled.div`
 `;
 
 export const CardCoffeeTag = styled.span`
-  background-color: ${({ theme }) => theme['yellow-200']};
+  background-color: ${({ theme }) => theme.colors['yellow-200']};
   border-radius: 10rem;
   padding: 0.4rem 0.8rem;
 
   font-size: 1rem;
   font-weight: 700;
-  color: ${({ theme }) => theme['yellow-700']};
+  color: ${({ theme }) => theme.colors['yellow-700']};
 
   text-transform: uppercase;
 `;
@@ -61,12 +61,12 @@ export const CardCoffeeName = styled.h3`
   font-family: 'Baloo 2';
   font-size: 2rem;
   font-weight: 700;
-  color: ${({ theme }) => theme['base-subtitle']};
+  color: ${({ theme }) => theme.colors['base-subtitle']};
 `;
 
 export const CardCoffeeDescription = styled.p`
   font-size: 14px;
-  color: ${({ theme }) => theme['base-label']};
+  color: ${({ theme }) => theme.colors['base-label']};
 `;
 
 export const CardCoffeeFooter = styled.div`
@@ -79,7 +79,7 @@ export const CardCoffeeFooter = styled.div`
 
 export const CardCoffeePrice = styled.div`
   font-size: 1.4rem;
-  color: ${({ theme }) => theme['base-text']};
+  color: ${({ theme }) => theme.colors['base-text']};
 
   span {
     font-family: 'Baloo 2';

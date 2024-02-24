@@ -18,14 +18,14 @@ export const SideMenuContainer = styled.div`
     gap: 0.4rem;
     padding: 0.8rem;
 
-    background-color: ${({ theme }) => theme['purple-200']};
+    background-color: ${({ theme }) => theme.colors['purple-200']};
     border-radius: 6px;
 
     font-size: 1.4rem;
-    color: ${({ theme }) => theme['purple-700']};
+    color: ${({ theme }) => theme.colors['purple-700']};
 
     svg {
-      color: ${({ theme }) => theme['purple-500']};
+      color: ${({ theme }) => theme.colors['purple-500']};
     }
   }
 `;

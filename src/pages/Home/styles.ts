@@ -11,7 +11,7 @@ export const HomeContainer = styled.div`
     font-family: 'Baloo 2';
     font-size: 3.2rem;
     font-weight: 800;
-    color: ${({ theme }) => theme['base-subtitle']};
+    color: ${({ theme }) => theme.colors['base-subtitle']};
   }
 `;
 
@@ -20,9 +20,9 @@ export const HeroContainer = styled.section`
   background: ${({ theme }) => css`url(${background}) no-repeat center,
   linear-gradient(
         0deg,
-        ${theme['base-background']} 0%,
-        ${rgba(theme['base-background'], 0.2)} 50%,
-        ${theme['base-background']} 100%
+        ${theme.colors['base-background']} 0%,
+        ${rgba(theme.colors['base-background'], 0.2)} 50%,
+        ${theme.colors['base-background']} 0%
       )`};
 
   background-size: cover;
@@ -37,13 +37,7 @@ export const HeroContent = styled.div`
     font-family: 'Baloo 2', sans-serif;
     font-weight: 800;
     line-height: 130%;
-    color: ${({ theme }) => theme['base-title']};
-  }
-
-  p {
-    line-height: 130%;
-    color: ${({ theme }) => theme['base-text']};
-    margin: 1.6rem 0 5rem;
+    color: ${({ theme }) => theme.colors['base-title']};
   }
 
   img {
@@ -60,52 +54,23 @@ export const HeroContent = styled.div`
       font-size: 4.8rem;
     }
 
-    p {
-      font-size: 2rem;
-    }
-
     img {
       display: block;
     }
   }
 `;
 
-export const UlContainer = styled.ul`
-  li {
-    color: ${({ theme }) => theme['base-text']};
-
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-top: 1.6rem;
-  }
+export const InfoContainer = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 6rem;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    columns: 4rem;
   }
-`;
-
-const BG_ICON_COLOR = {
-  yellow: 'yellow-500',
-  yellowDark: 'yellow-700',
-  gray: 'base-text',
-  purple: 'purple-500',
-} as const;
-
-interface BgIconColorProps {
-  $bgiconcolor: keyof typeof BG_ICON_COLOR;
-}
-
-export const IconHeroContainer = styled.div<BgIconColorProps>`
-  color: ${({ theme }) => theme.white};
-
-  background-color: ${(props) =>
-    props.theme[BG_ICON_COLOR[props.$bgiconcolor]]};
-  border-radius: 50%;
-
-  padding: 0.8rem;
-
-  display: flex;
-  align-items: center;
 `;

@@ -6,9 +6,9 @@ export const CartButtonContainer = styled.button`
 
   display: flex;
 
-  background-color: ${({ theme }) => theme['yellow-200']};
+  background-color: ${({ theme }) => theme.colors['yellow-200']};
 
   svg {
-    color: ${({ theme }) => theme['yellow-700']};
+    color: ${({ theme }) => theme.colors['yellow-700']};
   }
 `;

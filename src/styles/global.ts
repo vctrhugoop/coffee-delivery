@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     -webkit-font-smoothing: antialiased;
 
-    background-color: ${({ theme }) => theme['base-background']};
+    background-color: ${({ theme }) => theme.colors['base-background']};
 
     font-size: 1.6rem;
     font-family: "Roboto", sans-serif;

@@ -5,6 +5,14 @@ import background from '../../assets/Background.png';
 
 export const HomeContainer = styled.div`
   width: 100%;
+
+  h2 {
+    padding: 5rem 2rem;
+    font-family: 'Baloo 2';
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: ${({ theme }) => theme['base-subtitle']};
+  }
 `;
 
 export const HeroContainer = styled.section`

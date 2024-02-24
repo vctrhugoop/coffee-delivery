@@ -8,6 +8,7 @@ import {
 } from './styles';
 
 import HeroImage from '../../assets/HeroImage.png';
+import { CoffeeList } from './components/CoffeeList';
 
 export function Home() {
   return (
@@ -55,6 +56,8 @@ export function Home() {
           <img src={HeroImage} />
         </HeroContent>
       </HeroContainer>
+      <h2 className='container'>Nossos Cafés</h2>
+      <CoffeeList />
     </HomeContainer>
   );
 }

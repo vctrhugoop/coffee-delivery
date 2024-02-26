@@ -21,10 +21,15 @@ export const CoffeeListContainer = styled.main`
 export const CardCoffee = styled.div`
   width: 25rem;
   height: 31rem;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   background-color: ${({ theme }) => theme.colors['base-card']};
 
   border-radius: 6px 36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and ((min-width: 768px) and (max-width: 1267px)) {
     justify-self: center;
@@ -77,11 +82,10 @@ export const CardCoffeeDescription = styled.p`
 `;
 
 export const CardCoffeeFooter = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-top: 3rem;
 `;
 
 export const CardCoffeePrice = styled.div`

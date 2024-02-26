@@ -25,13 +25,6 @@ export const HeroContainer = styled.section`
 export const HeroContent = styled.div`
   padding: 0 2rem;
 
-  h1 {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    line-height: 130%;
-    color: ${({ theme }) => theme.colors['base-title']};
-  }
-
   img {
     display: none;
   }
@@ -60,6 +53,24 @@ export const HeroContent = styled.div`
     img {
       display: block;
     }
+  }
+`;
+
+export const HeroTextContainer = styled.div`
+  h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    line-height: 130%;
+    color: ${({ theme }) => theme.colors['base-title']};
+  }
+
+  p {
+    font-family: Roboto;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 130%;
+    color: ${({ theme }) => theme.colors['base-subtitle']};
+    margin-top: 1.6rem;
   }
 `;
 

@@ -4,6 +4,11 @@ export const InfoWithIconContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
+
+  p {
+    color: ${({ theme }) => theme.colors['base-text']};
+    line-height: 130%;
+  }
 `;
 
 interface IconsContainerProps {
@@ -20,8 +25,4 @@ export const IconContainer = styled.div<IconsContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  p {
-    font-size: 1.6rem;
-  }
 `;

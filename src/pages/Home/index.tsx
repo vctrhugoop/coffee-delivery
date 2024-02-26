@@ -1,6 +1,7 @@
 import {
   HeroContainer,
   HeroContent,
+  HeroTextContainer,
   HomeContainer,
   InfoContainer,
   SectionTitle,
@@ -20,11 +21,14 @@ export function Home() {
       <HeroContainer>
         <HeroContent className='container'>
           <div>
-            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-            <p>
-              Com o Coffee Delivery você recebe seu café onde estiver, a
-              qualquer hora
-            </p>
+            <HeroTextContainer>
+              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+              <p>
+                Com o Coffee Delivery você recebe seu café onde estiver, a
+                qualquer hora
+              </p>
+            </HeroTextContainer>
+
             <InfoContainer>
               <InfoWithIcon
                 iconBg={colors['yellow-700']}

@@ -5,14 +5,6 @@ import background from '../../assets/Background.png';
 
 export const HomeContainer = styled.div`
   width: 100%;
-
-  h2 {
-    padding: 5rem 2rem;
-    font-family: 'Baloo 2';
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: ${({ theme }) => theme.colors['base-subtitle']};
-  }
 `;
 
 export const HeroContainer = styled.section`
@@ -83,5 +75,16 @@ export const InfoContainer = styled.ul`
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
     columns: 4rem;
+  }
+`;
+
+export const SectionTitle = styled.div`
+  h2 {
+    margin-bottom: 5.4rem;
+    padding: 5rem 2rem;
+    font-family: 'Baloo 2';
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: ${({ theme }) => theme.colors['base-subtitle']};
   }
 `;

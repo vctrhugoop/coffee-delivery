@@ -3,6 +3,7 @@ import {
   HeroContent,
   HomeContainer,
   InfoContainer,
+  SectionTitle,
 } from './styles';
 
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
@@ -50,7 +51,9 @@ export function Home() {
           <img src={HeroImage} />
         </HeroContent>
       </HeroContainer>
-      <h2 className='container'>Nossos Cafés</h2>
+      <SectionTitle className='container'>
+        <h2>Nossos Cafés</h2>
+      </SectionTitle>
       <CoffeeList />
     </HomeContainer>
   );

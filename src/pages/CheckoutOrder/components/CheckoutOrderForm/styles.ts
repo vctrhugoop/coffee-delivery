@@ -77,6 +77,7 @@ export const PaymentMethodInputContainer = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.8rem;
 
   height: 5.1rem;
@@ -92,7 +93,6 @@ export const ContentContainer = styled.div`
 
   span {
     font-size: 1rem;
-    line-height: 160%;
     text-transform: uppercase;
 
     color: ${({ theme }) => theme.colors['base-text']};
@@ -107,6 +107,9 @@ export const ContentContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    gap: 1.2rem;
+    padding: 1.6rem;
+
     span {
       font-size: 1.2rem;
     }

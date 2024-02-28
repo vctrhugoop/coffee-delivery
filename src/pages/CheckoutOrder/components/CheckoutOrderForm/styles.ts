@@ -3,7 +3,7 @@ import { SectionBaseStyle } from '../../styles';
 
 export const CheckoutOrderFormContainer = styled.div`
   max-width: 64rem;
-  margin-top: 4rem;
+  margin: 4rem 0;
 
   display: flex;
   flex-direction: column;
@@ -38,6 +38,77 @@ export const AddressesFormContainer = styled.div`
 
     .complement {
       grid-column: span 2;
+    }
+  }
+`;
+
+export const PaymentMethodOptionsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+export const PaymentMethodInputContainer = styled.div`
+  display: flex;
+
+  input {
+    visibility: hidden;
+    appearance: none;
+  }
+
+  label {
+    width: 100%;
+  }
+
+  input:checked + label div {
+    background-color: ${({ theme }) => theme.colors['purple-200']};
+    border-color: ${({ theme }) => theme.colors['purple-500']};
+
+    &:hover {
+      background: ${({ theme }) => theme.colors['purple-200']};
+    }
+  }
+`;
+
+export const ContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  height: 5.1rem;
+  padding: 1rem;
+
+  background: ${({ theme }) => theme.colors['base-button']};
+  color: ${({ theme }) => theme.colors['base-text']};
+
+  border: 1px solid ${({ theme }) => theme.colors['base-button']};
+  border-radius: 6px;
+
+  transition: 0.4s;
+
+  span {
+    font-size: 1rem;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    color: ${({ theme }) => theme.colors['base-text']};
+  }
+
+  cursor: pointer;
+
+  user-select: none;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors['base-hover']};
+  }
+
+  @media screen and (min-width: 768px) {
+    span {
+      font-size: 1.2rem;
     }
   }
 `;

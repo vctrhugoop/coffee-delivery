@@ -44,22 +44,24 @@ export const AddressesFormContainer = styled.div`
 
 export const PaymentMethodOptionsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 export const PaymentMethodInputContainer = styled.div`
-  width: 100%;
+  display: flex;
 
   input {
     visibility: hidden;
     appearance: none;
+  }
+
+  label {
+    width: 100%;
   }
 
   input:checked + label div {
@@ -77,10 +79,7 @@ export const ContentContainer = styled.div`
   align-items: center;
   gap: 0.8rem;
 
-  max-width: 17rem;
-  width: 100%;
-  height: 5rem;
-
+  height: 5.1rem;
   padding: 1rem;
 
   background: ${({ theme }) => theme.colors['base-button']};
@@ -100,6 +99,8 @@ export const ContentContainer = styled.div`
   }
 
   cursor: pointer;
+
+  user-select: none;
 
   &:hover {
     background: ${({ theme }) => theme.colors['base-hover']};

@@ -2,6 +2,7 @@ import { ShoppingCart } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { Button } from '../../../../components/Button';
 import { QuantityInput } from '../../../../components/QuantityInput';
+import { useCart } from '../../../../hooks/useCart';
 import { formatMoney } from '../../../../utils/formatMoney';
 import {
   CardCoffee,
@@ -30,6 +31,7 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const { addCoffeeToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   function handleIncrease() {
@@ -38,6 +40,14 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
 
   function handleDecrease() {
     setQuantity((state) => state - 1);
+  }
+
+  function haddleAddCoffeeToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
   }
 
   const formattedPrice = formatMoney(coffee.price);
@@ -72,7 +82,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
             onDecrease={handleDecrease}
             quantity={quantity}
           />
-          <Button variant='icon'>
+          <Button variant='icon' onAddCoffeToCart={haddleAddCoffeeToCart}>
             <ShoppingCart size={22} weight='fill' />
           </Button>
         </CardCoffeeAddCart>

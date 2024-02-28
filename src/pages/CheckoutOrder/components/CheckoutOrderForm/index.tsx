@@ -1,7 +1,8 @@
 import { MapPinLine } from '@phosphor-icons/react';
 import { useTheme } from 'styled-components';
+
+import { SectionTitleContainer } from '../../styles';
 import { HeadingText } from '../HeadingText';
-import { SectionTitleContainer } from '../SectionTitle/styles';
 import { AddressForm } from './AddressForm';
 import { CheckoutOrderFormContainer, SectionFormContainer } from './styles';
 

@@ -15,3 +15,13 @@ export const SectionBaseStyle = styled.div`
   border-radius: 6px;
   padding: 2rem;
 `;
+
+export const SectionTitleContainer = styled.h2`
+  font-family: 'Baloo 2';
+  font-size: 1.8;
+  font-weight: 700;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors['base-subtitle']};
+
+  margin-bottom: 1.5rem;
+`;

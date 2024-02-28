@@ -41,3 +41,59 @@ export const AddressesFormContainer = styled.div`
     }
   }
 `;
+
+export const PaymentMethodOptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+export const PaymentMethodInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  height: 5rem;
+  width: 18rem;
+  padding: 1.6rem;
+
+  background-color: ${({ theme }) => theme.colors['base-button']};
+  border-radius: 6px;
+
+  input {
+    visibility: hidden;
+    appearance: none;
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors['base-hover']};
+  }
+
+  user-select: none;
+
+  cursor: pointer;
+`;
+
+export const ContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+
+  span {
+    font-size: 1.2rem;
+    line-height: 160%;
+    text-transform: uppercase;
+
+    color: ${({ theme }) => theme.colors['base-text']};
+  }
+
+  cursor: pointer;
+`;

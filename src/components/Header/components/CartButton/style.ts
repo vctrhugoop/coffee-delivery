@@ -13,6 +13,8 @@ export const CartButtonContainer = styled.button`
   }
 
   position: relative;
+
+  cursor: pointer;
 `;
 
 export const BagdeQuantityCart = styled.div`

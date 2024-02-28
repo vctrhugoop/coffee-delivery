@@ -92,7 +92,7 @@ export const ContentContainer = styled.div`
   transition: 0.4s;
 
   span {
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
 
     color: ${({ theme }) => theme.colors['base-text']};

@@ -99,3 +99,21 @@ export const SectionTitle = styled.div`
     color: ${({ theme }) => theme.colors['base-subtitle']};
   }
 `;
+
+export const CoffeeListContainer = styled.main`
+  padding: 0 2rem 10rem;
+  display: grid;
+  place-content: center;
+  row-gap: 5rem;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (min-width: 1268px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;

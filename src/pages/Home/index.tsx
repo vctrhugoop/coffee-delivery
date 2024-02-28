@@ -1,4 +1,5 @@
 import {
+  CoffeeListContainer,
   HeroContainer,
   HeroContent,
   HeroTextContainer,
@@ -12,10 +13,14 @@ import { useTheme } from 'styled-components';
 import HeroImage from '../../assets/HeroImage.png';
 
 import { InfoWithIcon } from '../../components/InfoWithIcon';
-import { CoffeeList } from './components/CoffeeList';
+import { coffees } from '../../database/coffee';
+import { useCart } from '../../hooks/useCart';
+import { CoffeeCard } from './components/CoffeeList';
 
 export function Home() {
   const { colors } = useTheme();
+  const { cartItems } = useCart();
+
   return (
     <HomeContainer>
       <HeroContainer>
@@ -58,7 +63,11 @@ export function Home() {
       <SectionTitle className='container'>
         <h2>Nossos Cafés</h2>
       </SectionTitle>
-      <CoffeeList />
+      <CoffeeListContainer>
+        {coffees.map((coffee) => (
+          <CoffeeCard key={coffee.id} coffee={coffee} />
+        ))}
+      </CoffeeListContainer>
     </HomeContainer>
   );
 }

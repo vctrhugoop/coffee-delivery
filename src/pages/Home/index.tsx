@@ -12,14 +12,17 @@ import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
 import { useTheme } from 'styled-components';
 import HeroImage from '../../assets/HeroImage.png';
 
+import { useEffect } from 'react';
 import { InfoWithIcon } from '../../components/InfoWithIcon';
 import { coffees } from '../../database/coffee';
-import { useCart } from '../../hooks/useCart';
 import { CoffeeCard } from './components/CoffeeList';
 
 export function Home() {
   const { colors } = useTheme();
-  const { cartItems } = useCart();
+
+  useEffect(() => {
+    document.title = 'Coffee Delivery';
+  }, []);
 
   return (
     <HomeContainer>

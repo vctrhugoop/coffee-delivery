@@ -105,13 +105,4 @@ export const ContentContainer = styled.div`
   &:hover {
     background: ${({ theme }) => theme.colors['base-hover']};
   }
-
-  @media screen and (min-width: 768px) {
-    gap: 1.2rem;
-    padding: 1.6rem;
-
-    span {
-      font-size: 1.2rem;
-    }
-  }
 `;

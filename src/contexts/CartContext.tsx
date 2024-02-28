@@ -1,5 +1,6 @@
 import { produce } from 'immer';
 import { ReactNode, createContext, useState } from 'react';
+import { toast } from 'sonner';
 import { Coffee } from '../pages/Home/components/CoffeeList';
 
 export interface CartItem extends Coffee {
@@ -36,6 +37,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       }
     });
     setCartItems(newCart);
+
+    toast.success('Café adicionado ao carrinho!');
   }
   console.log(cartItems);
 

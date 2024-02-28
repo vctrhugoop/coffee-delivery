@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
+import { Toaster } from 'sonner';
 import { ThemeProvider } from 'styled-components';
 import { Router } from './Router';
 import { CartContextProvider } from './contexts/CartContext';
@@ -14,6 +15,7 @@ export function App() {
         </CartContextProvider>
       </BrowserRouter>
       <GlobalStyle />
+      <Toaster richColors />
     </ThemeProvider>
   );
 }

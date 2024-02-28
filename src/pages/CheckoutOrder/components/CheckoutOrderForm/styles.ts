@@ -43,10 +43,8 @@ export const AddressesFormContainer = styled.div`
 `;
 
 export const PaymentMethodOptionsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
 
   @media screen and (min-width: 768px) {
@@ -61,8 +59,9 @@ export const PaymentMethodInputContainer = styled.div`
   align-items: center;
 
   height: 5rem;
-  width: 18rem;
-  padding: 1.6rem;
+  max-width: 17rem;
+  width: 100%;
+  padding: 1rem;
 
   background-color: ${({ theme }) => theme.colors['base-button']};
   border-radius: 6px;
@@ -85,10 +84,10 @@ export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 0.8rem;
 
   span {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 160%;
     text-transform: uppercase;
 
@@ -96,4 +95,10 @@ export const ContentContainer = styled.div`
   }
 
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    span {
+      font-size: 1.2rem;
+    }
+  }
 `;

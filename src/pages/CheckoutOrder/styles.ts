@@ -4,7 +4,6 @@ export const CheckoutOrderContainer = styled.div`
   padding: 0 2rem;
 
   display: flex;
-  flex-direction: column;
   gap: 3.2rem;
 `;
 

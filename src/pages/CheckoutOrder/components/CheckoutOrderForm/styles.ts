@@ -55,36 +55,41 @@ export const PaymentMethodOptionsContainer = styled.div`
 `;
 
 export const PaymentMethodInputContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  height: 5rem;
-  max-width: 17rem;
   width: 100%;
-  padding: 1rem;
-
-  background-color: ${({ theme }) => theme.colors['base-button']};
-  border-radius: 6px;
 
   input {
     visibility: hidden;
     appearance: none;
   }
 
-  &:hover {
-    background: ${({ theme }) => theme.colors['base-hover']};
+  input:checked + label div {
+    background-color: ${({ theme }) => theme.colors['purple-200']};
+    border-color: ${({ theme }) => theme.colors['purple-500']};
+
+    &:hover {
+      background: ${({ theme }) => theme.colors['purple-200']};
+    }
   }
-
-  user-select: none;
-
-  cursor: pointer;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.8rem;
+
+  max-width: 17rem;
+  width: 100%;
+  height: 5rem;
+
+  padding: 1rem;
+
+  background: ${({ theme }) => theme.colors['base-button']};
+  color: ${({ theme }) => theme.colors['base-text']};
+
+  border: 1px solid ${({ theme }) => theme.colors['base-button']};
+  border-radius: 6px;
+
+  transition: 0.4s;
 
   span {
     font-size: 1rem;
@@ -95,6 +100,10 @@ export const ContentContainer = styled.div`
   }
 
   cursor: pointer;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors['base-hover']};
+  }
 
   @media screen and (min-width: 768px) {
     span {

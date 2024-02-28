@@ -19,8 +19,8 @@ export const CartButtonContainer = styled.button`
 
 export const BagdeQuantityCart = styled.div`
   position: absolute;
-  top: -0.8rem;
-  right: -0.8rem;
+  top: calc(-1.5rem / 2);
+  right: calc(-1.5rem / 2);
 
   width: 2rem;
   height: 2rem;

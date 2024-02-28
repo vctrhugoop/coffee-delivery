@@ -4,7 +4,10 @@ export function Footer() {
   return (
     <FooterContainer>
       <p>
-        Desenvolvido por <a href='https://github.com/vctrhugoop'>Victor Hugo</a>
+        Desenvolvido por{' '}
+        <a target='_blank' href='https://github.com/vctrhugoop'>
+          Victor Hugo
+        </a>
       </p>
     </FooterContainer>
   );

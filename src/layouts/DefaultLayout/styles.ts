@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const LayoutContainer = styled.div`
+  min-height: 100vh;
+  position: relative;
+
   .container {
     width: 100%;
     max-width: 112rem;

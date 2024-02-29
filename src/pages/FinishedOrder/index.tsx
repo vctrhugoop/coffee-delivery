@@ -1,4 +1,5 @@
 import { Clock, CurrencyDollar, MapPin } from '@phosphor-icons/react';
+import { useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import illustration from '../../assets/Illustration.png';
 import { InfoWithIcon } from '../../components/InfoWithIcon';
@@ -13,6 +14,10 @@ import {
 
 export function FinishedOrder() {
   const { colors } = useTheme();
+
+  useEffect(() => {
+    document.title = 'Pedido Confirmado | Coffee Delivery';
+  }, []);
 
   return (
     <FinishedOrderContainer className='container'>

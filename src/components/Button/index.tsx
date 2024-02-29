@@ -4,7 +4,7 @@ import { ButtonContainer, ButtonVariant } from './styled';
 interface ButtonProps {
   variant?: ButtonVariant;
   children: ReactNode;
-  onAddCoffeToCart: () => void;
+  onAddCoffeToCart?: () => void;
 }
 
 export function Button({

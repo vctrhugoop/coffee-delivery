@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { Coffee } from '../pages/Home/components/CoffeeList';
 
 export interface CartItem extends Coffee {
+  coffees: CartItem;
   quantity: number;
 }
 
@@ -40,7 +41,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     toast.success('Café adicionado ao carrinho!');
   }
-  console.log(cartItems);
 
   return (
     <CartContext.Provider value={{ cartItems, cartQuantity, addCoffeeToCart }}>

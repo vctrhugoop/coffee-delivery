@@ -16,7 +16,7 @@ export const SectionFormContainer = styled(SectionBaseStyle)`
   gap: 3.2rem;
 `;
 
-export const AddressesFormContainer = styled.div`
+export const AddressesFormContainer = styled.form`
   width: 100%;
   display: grid;
   row-gap: 1.6rem;

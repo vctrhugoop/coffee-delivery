@@ -47,3 +47,15 @@ export const PriceContent = styled.div`
     font-size: 2rem;
   }
 `;
+export const EmptyCart = styled.div`
+  padding: 0 0 3.4rem;
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors['base-button']};
+
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors['base-text']};
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

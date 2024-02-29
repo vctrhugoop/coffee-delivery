@@ -4,7 +4,12 @@ export const CheckoutOrderContainer = styled.div`
   padding: 0 2rem;
 
   display: flex;
+  flex-direction: column;
   gap: 3.2rem;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const SectionBaseStyle = styled.div`

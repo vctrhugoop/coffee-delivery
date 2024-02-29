@@ -21,8 +21,13 @@ export const CoffeeCartCardContainer = styled.div`
   }
 
   img {
+    display: none;
     height: 6.4rem;
     width: 6.4rem;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
 
   > div {

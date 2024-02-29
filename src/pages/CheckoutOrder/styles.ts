@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const CheckoutOrderContainer = styled.div`
-  padding: 0 2rem;
-
+  padding: 0 2rem 10rem;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;

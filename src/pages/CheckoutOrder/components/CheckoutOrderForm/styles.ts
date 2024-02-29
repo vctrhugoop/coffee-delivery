@@ -3,7 +3,7 @@ import { SectionBaseStyle } from '../../styles';
 
 export const CheckoutOrderFormContainer = styled.div`
   max-width: 64rem;
-  margin: 4rem 0;
+  margin-top: 4rem;
 
   display: flex;
   flex-direction: column;

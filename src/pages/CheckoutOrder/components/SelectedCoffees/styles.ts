@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const SelectedCoffeesContainer = styled.div`
   width: 100%;
-  margin-top: 4rem;
-
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 4rem;
+  }
 `;
 
 export const SelectedCoffeesContent = styled.div`

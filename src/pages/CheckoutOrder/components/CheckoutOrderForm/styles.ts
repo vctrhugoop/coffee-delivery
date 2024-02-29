@@ -21,7 +21,7 @@ export const AddressesFormContainer = styled.form`
   display: grid;
   row-gap: 1.6rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: 20rem 1fr 6rem;
     column-gap: 1.2rem;
 
@@ -47,7 +47,7 @@ export const PaymentMethodOptionsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;

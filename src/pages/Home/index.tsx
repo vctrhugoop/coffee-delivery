@@ -66,7 +66,7 @@ export function Home() {
       <SectionTitle className='container'>
         <h2>Nossos Cafés</h2>
       </SectionTitle>
-      <CoffeeListContainer>
+      <CoffeeListContainer className='container'>
         {coffees.map((coffee) => (
           <CoffeeCard key={coffee.id} coffee={coffee} />
         ))}

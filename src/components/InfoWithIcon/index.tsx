@@ -3,7 +3,7 @@ import { IconContainer, InfoWithIconContainer } from './styles';
 
 interface BenefitItemProps {
   icon: ReactNode;
-  text: string | ReactNode;
+  text?: string | ReactNode;
   iconBg: string;
 }
 

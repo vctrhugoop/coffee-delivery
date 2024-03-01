@@ -17,7 +17,13 @@ export function SelectedCoffees() {
       <SectionTitleContainer>Cafés selecionados</SectionTitleContainer>
       <SelectedCoffeesContent>
         {cartItems.length <= 0 ? (
-          <EmptyCart>Carrinho vazio</EmptyCart>
+          <EmptyCart>
+            <h3>SEU CARRINHO ESTÁ VAZIO!</h3>
+            <p>
+              Para adicionar produtos no seu carrinho, procure pelo produto em
+              nosso site e clique no botão “COMPRAR” ou “ADICIONAR”.
+            </p>
+          </EmptyCart>
         ) : (
           <>
             {cartItems.map((item) => (

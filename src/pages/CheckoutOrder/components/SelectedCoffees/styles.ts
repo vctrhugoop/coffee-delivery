@@ -50,14 +50,22 @@ export const PriceContent = styled.div`
   }
 `;
 export const EmptyCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+
   padding: 0 0 3.4rem;
 
   border-bottom: 1px solid ${({ theme }) => theme.colors['base-button']};
 
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors['base-text']};
+  h3 {
+    font-size: 2rem;
+    color: ${({ theme }) => theme.colors['base-text']};
+  }
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  p {
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.colors['base-subtitle']};
+  }
 `;

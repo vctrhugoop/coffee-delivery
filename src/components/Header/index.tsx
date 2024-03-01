@@ -1,9 +1,9 @@
-import { MapPin } from '@phosphor-icons/react';
 import { NavLink } from 'react-router-dom';
 
 import Logo from '../../assets/Logo.svg';
 import { CartButton } from './components/CartButton';
-import { HeaderContainer, HeaderContent, SideMenuContainer } from './styles';
+import { LocaleMap } from './components/Locale';
+import { AsideContainer, HeaderContainer, HeaderContent } from './styles';
 
 export function Header() {
   return (
@@ -12,13 +12,10 @@ export function Header() {
         <NavLink to='/'>
           <img src={Logo} />
         </NavLink>
-        <SideMenuContainer>
-          <span>
-            <MapPin size={22} weight='fill' />
-            Diadema, SP
-          </span>
+        <AsideContainer>
+          <LocaleMap />
           <CartButton />
-        </SideMenuContainer>
+        </AsideContainer>
       </HeaderContent>
     </HeaderContainer>
   );

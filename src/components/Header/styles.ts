@@ -24,25 +24,8 @@ export const HeaderContent = styled.div`
   padding: 0 2rem;
 `;
 
-export const SideMenuContainer = styled.div`
+export const AsideContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
-  span {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.8rem;
-
-    background-color: ${({ theme }) => theme.colors['purple-200']};
-    border-radius: 6px;
-
-    font-size: 1.4rem;
-    color: ${({ theme }) => theme.colors['purple-700']};
-
-    svg {
-      color: ${({ theme }) => theme.colors['purple-500']};
-    }
-  }
 `;

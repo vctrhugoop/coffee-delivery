@@ -55,6 +55,8 @@ export const EmptyCart = styled.div`
   align-items: center;
   gap: 0.8rem;
 
+  text-align: center;
+
   padding: 0 0 3.4rem;
 
   border-bottom: 1px solid ${({ theme }) => theme.colors['base-button']};

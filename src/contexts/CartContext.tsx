@@ -4,7 +4,6 @@ import { toast } from 'sonner';
 import { Coffee } from '../pages/Home/components/CoffeeList';
 
 export interface CartItem extends Coffee {
-  coffees: CartItem;
   quantity: number;
 }
 

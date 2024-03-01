@@ -38,7 +38,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     });
     setCartItems(newCart);
 
-    toast.success('Café adicionado ao carrinho!');
+    toast.success('Produto adicionado ao carrinho com sucesso!');
   }
 
   return (

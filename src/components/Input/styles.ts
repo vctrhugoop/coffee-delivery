@@ -4,7 +4,6 @@ export const InputContainer = styled.div``;
 
 export const InputStyleContainer = styled.div`
   height: 4.2rem;
-  padding: 1.2rem;
 
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors['base-button']};
@@ -24,11 +23,14 @@ export const InputStyleContainer = styled.div`
     font-size: 1.1rem;
     font-style: italic;
     color: ${({ theme }) => theme.colors['base-label']};
+    margin-right: 1.2rem;
   }
 `;
 
 export const InputStyled = styled.input`
   flex: 1;
+  height: 100%;
+  padding: 1.2rem;
   border: 0;
   background: none;
   outline: none;

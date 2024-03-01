@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components';
 import { Button } from '../../../../components/Button';
 import { QuantityInput } from '../../../../components/QuantityInput';
 import { CartItem } from '../../../../contexts/CartContext';
+import { useCart } from '../../../../hooks/useCart';
 import { formatMoney } from '../../../../utils/formatMoney';
 import { ActionsWrapper, CoffeeCartCardContainer } from './styles';
 
@@ -11,7 +12,16 @@ interface CoffeeCartCardProps {
 }
 
 export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
+  const { changeCartItemQuantity } = useCart();
   const { colors } = useTheme();
+
+  function handleIncrease() {
+    changeCartItemQuantity(coffee.id, 'increase');
+  }
+
+  function handleDecrease() {
+    changeCartItemQuantity(coffee.id, 'decrease');
+  }
 
   const coffeeTotal = coffee.price * coffee.quantity;
 
@@ -23,7 +33,12 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
         <div>
           <p>{coffee.name}</p>
           <ActionsWrapper>
-            <QuantityInput quantity={coffee.quantity} size='small' />
+            <QuantityInput
+              quantity={coffee.quantity}
+              size='small'
+              onDecrease={handleDecrease}
+              onIncrease={handleIncrease}
+            />
             <Button variant='secundary'>
               <Trash size={16} color={colors['purple-500']} />
               remover

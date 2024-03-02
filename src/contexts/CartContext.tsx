@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { Coffee } from '../pages/Home/components/CoffeeList';
 
@@ -23,10 +23,19 @@ interface CartContextProviderProps {
   children: ReactNode;
 }
 
+const COFFEE_ITENS_STORAGE = '@coffee-delivery:cartItems-v-1-0';
+
 export const CartContext = createContext({} as CartContextProps);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem(COFFEE_ITENS_STORAGE);
+
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems);
+    }
+    return [];
+  });
 
   const cartQuantity = cartItems.length;
 
@@ -85,6 +94,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     toast.warning('Produto removido do carrinho!');
   }
+
+  useEffect(() => {
+    localStorage.setItem(COFFEE_ITENS_STORAGE, JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <CartContext.Provider

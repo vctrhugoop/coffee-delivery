@@ -17,6 +17,7 @@ interface CartContextProps {
     type: 'increase' | 'decrease',
   ) => void;
   removeCartItem: (cartItemId: string) => void;
+  cleanCartItems: () => void;
 }
 
 interface CartContextProviderProps {
@@ -95,6 +96,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     toast.warning('Produto removido do carrinho!');
   }
 
+  function cleanCartItems() {
+    setCartItems([]);
+  }
+
   useEffect(() => {
     localStorage.setItem(COFFEE_ITENS_STORAGE, JSON.stringify(cartItems));
   }, [cartItems]);
@@ -108,6 +113,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         changeCartItemQuantity,
         removeCartItem,
         cartItemsTotal,
+        cleanCartItems,
       }}
     >
       {children}

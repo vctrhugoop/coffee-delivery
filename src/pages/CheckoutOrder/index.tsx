@@ -4,6 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import * as zod from 'zod';
 
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 import { CheckoutOrderForm } from './components/CheckoutOrderForm';
 import { SelectedCoffees } from './components/SelectedCoffees';
 import { CheckoutOrderContainer } from './styles';
@@ -34,6 +35,8 @@ export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>;
 type ConfirmOrderFormData = OrderData;
 
 export function CheckoutOrder() {
+  const { cleanCartItems } = useCart();
+
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
     defaultValues: {
@@ -49,6 +52,8 @@ export function CheckoutOrder() {
     navigate('/finished-order', {
       state: data,
     });
+
+    cleanCartItems();
   }
 
   useEffect(() => {

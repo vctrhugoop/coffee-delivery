@@ -1,17 +1,22 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
 import { InputContainer, InputStyleContainer, InputStyled } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   rightSideText?: string;
-}
+  error?: string;
+};
 
-export function Input({ rightSideText, className, ...props }: InputProps) {
+export const Input = forwardRef(function Input(
+  { rightSideText, className, error, ...props }: InputProps,
+  ref: LegacyRef<HTMLInputElement>,
+) {
   return (
     <InputContainer className={className}>
-      <InputStyleContainer>
-        <InputStyled {...props} />
+      <InputStyleContainer hasError={!!error}>
+        <InputStyled {...props} ref={ref} />
         {rightSideText && <span>{rightSideText}</span>}
       </InputStyleContainer>
+      {error && <p>{error}</p>}
     </InputContainer>
   );
-}
+});

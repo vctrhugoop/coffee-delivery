@@ -1,8 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const InputContainer = styled.div``;
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 
-export const InputStyleContainer = styled.div`
+  position: relative;
+
+  > p {
+    font-size: 1.4rem;
+    color: ${({ theme }) => theme.colors['base-error']};
+  }
+`;
+
+interface InputStyleContainerProps {
+  hasError: boolean;
+}
+
+export const InputStyleContainer = styled.div<InputStyleContainerProps>`
   height: 4.2rem;
 
   border-radius: 4px;
@@ -15,9 +30,17 @@ export const InputStyleContainer = styled.div`
 
   overflow: hidden;
 
+  transition: 0.4s;
+
   &:focus-within {
     border-color: ${({ theme }) => theme.colors['yellow-700']};
   }
+
+  ${({ theme, hasError }) =>
+    hasError &&
+    css`
+      border-color: ${theme.colors['base-error']};
+    `}
 
   span {
     font-size: 1.1rem;

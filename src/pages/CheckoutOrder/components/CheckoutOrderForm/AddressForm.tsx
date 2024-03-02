@@ -1,19 +1,15 @@
+import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../../components/Input';
 import { AddressesFormContainer } from './styles';
 
-export function AddressForm() {
-  // function handleCheckZipcode(event) {
-  //   const zipcode = event.target.value.replace(/\D/g, '');
+interface ErrorsType {
+  errors: { [key: string]: { message: string } };
+}
 
-  //   fetch(`https://viacep.com.br/ws/${zipcode}/json/`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setValue('street', data.logradouro);
-  //       setValue('neighborhood', data.bairro);
-  //       setValue('city', data.localidade);
-  //       setValue('uf', data.uf);
-  //     });
-  // }
+export function AddressForm() {
+  const { register, formState } = useFormContext();
+
+  const { errors } = formState as unknown as ErrorsType;
 
   return (
     <AddressesFormContainer>
@@ -21,18 +17,39 @@ export function AddressForm() {
         placeholder='CEP'
         type='number'
         className='zipcode'
-        // onBlur={handleCheckZipcode}
+        {...register('zipcode')}
+        error={errors.zipcode?.message}
       />
-      <Input placeholder='Rua' className='street' />
-      <Input placeholder='Número' type='number' />
+      <Input
+        placeholder='Rua'
+        className='street'
+        {...register('street')}
+        error={errors.street?.message}
+      />
+      <Input
+        placeholder='Número'
+        type='number'
+        {...register('number')}
+        error={errors.number?.message}
+      />
       <Input
         placeholder='Complemento'
-        rightSideText='Opcional'
         className='complement'
+        rightSideText='Opcional'
+        {...register('complement')}
+        error={errors.complement?.message}
       />
-      <Input placeholder='Bairro' />
-      <Input placeholder='Cidade' />
-      <Input placeholder='UF' />
+      <Input
+        placeholder='Bairro'
+        {...register('neighborhood')}
+        error={errors.neighborhood?.message}
+      />
+      <Input
+        placeholder='Cidade'
+        {...register('city')}
+        error={errors.city?.message}
+      />
+      <Input placeholder='UF' {...register('uf')} error={errors.uf?.message} />
     </AddressesFormContainer>
   );
 }

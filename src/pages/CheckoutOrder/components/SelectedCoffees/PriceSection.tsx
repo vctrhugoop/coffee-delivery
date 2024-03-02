@@ -28,7 +28,9 @@ export function PriceSection() {
         <h3>Total </h3>
         <strong>R$ {formattedCartTotal}</strong>
       </PriceContent>
-      <Button disabled={cartQuantity <= 0}>confirmar pedido</Button>
+      <Button disabled={cartQuantity <= 0} type='submit'>
+        confirmar pedido
+      </Button>
     </PriceContainer>
   );
 }

@@ -1,8 +1,11 @@
 import { Clock, CurrencyDollar, MapPin } from '@phosphor-icons/react';
 import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import illustration from '../../assets/Illustration.png';
 import { InfoWithIcon } from '../../components/InfoWithIcon';
+import { OrderData } from '../CheckoutOrder';
+import { paymentMethods } from '../CheckoutOrder/components/CheckoutOrderForm';
 import {
   CardText,
   FinishedOrderCard,
@@ -12,12 +15,28 @@ import {
   FinishedOrderHeading,
 } from './styles';
 
+interface LocationType {
+  state: OrderData;
+}
+
 export function FinishedOrder() {
   const { colors } = useTheme();
+
+  const { state } = useLocation() as unknown as LocationType;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Pedido Confirmado | Coffee Delivery';
   }, []);
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/');
+    }
+  }, []);
+
+  if (!state) return <></>;
 
   return (
     <FinishedOrderContainer className='container'>
@@ -34,8 +53,12 @@ export function FinishedOrder() {
             />
             <CardText>
               <p>
-                Entrega em <span>Rua João Daniel Martinelli, 102</span> Farrapos
-                - Porto Alegre, RS
+                Entrega em{' '}
+                <span>
+                  {state.street}, {state.number}
+                </span>
+                <br />
+                {state.neighborhood} - {state.city}, {state.uf}
               </p>
             </CardText>
           </FinishedOrderContentCard>
@@ -56,7 +79,7 @@ export function FinishedOrder() {
             />
             <CardText>
               <p>Pagamento na entrega</p>
-              <span>Cartão de Crédito</span>
+              <span>{paymentMethods[state.paymentMethod].label}</span>
             </CardText>
           </FinishedOrderContentCard>
         </FinishedOrderCard>

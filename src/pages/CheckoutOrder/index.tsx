@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as zod from 'zod';
 
+import { useNavigate } from 'react-router-dom';
 import { CheckoutOrderForm } from './components/CheckoutOrderForm';
 import { SelectedCoffees } from './components/SelectedCoffees';
 import { CheckoutOrderContainer } from './styles';
@@ -42,8 +43,12 @@ export function CheckoutOrder() {
 
   const { handleSubmit } = confirmOrderForm;
 
+  const navigate = useNavigate();
+
   function handleComfirmOrder(data: ConfirmOrderFormData) {
-    console.log(data);
+    navigate('/finished-order', {
+      state: data,
+    });
   }
 
   useEffect(() => {

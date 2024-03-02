@@ -4,6 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import * as zod from 'zod';
 
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import { useCart } from '../../hooks/useCart';
 import { CheckoutOrderForm } from './components/CheckoutOrderForm';
 import { SelectedCoffees } from './components/SelectedCoffees';
@@ -54,6 +55,8 @@ export function CheckoutOrder() {
     });
 
     cleanCartItems();
+
+    toast.success('Pedido realizada com sucesso');
   }
 
   useEffect(() => {

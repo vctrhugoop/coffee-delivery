@@ -5,15 +5,24 @@ interface ButtonProps {
   variant?: ButtonVariant;
   children: ReactNode;
   onAddCoffeToCart?: () => void;
+  onRemoveCartItem?: () => void;
 }
 
 export function Button({
   variant = 'primary',
   children,
   onAddCoffeToCart,
+  onRemoveCartItem,
 }: ButtonProps) {
+  const handleClick = () => {
+    if (onAddCoffeToCart) {
+      onAddCoffeToCart();
+    } else if (onRemoveCartItem) {
+      onRemoveCartItem();
+    }
+  };
   return (
-    <ButtonContainer variant={variant} onClick={onAddCoffeToCart}>
+    <ButtonContainer variant={variant} onClick={handleClick}>
       {children}
     </ButtonContainer>
   );

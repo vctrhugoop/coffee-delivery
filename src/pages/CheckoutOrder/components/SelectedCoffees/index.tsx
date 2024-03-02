@@ -1,4 +1,3 @@
-import { Button } from '../../../../components/Button';
 import { useCart } from '../../../../hooks/useCart';
 import { SectionTitleContainer } from '../../styles';
 import { CoffeeCartCard } from '../CoffeeCartCard';
@@ -32,7 +31,6 @@ export function SelectedCoffees() {
           </>
         )}
         <PriceSection />
-        <Button>confirmar pedido</Button>
       </SelectedCoffeesContent>
     </SelectedCoffeesContainer>
   );

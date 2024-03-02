@@ -47,6 +47,11 @@ export const PaymentMethodOptionsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
 
+  > p {
+    grid-column: span 3;
+    color: ${({ theme }) => theme.colors['base-error']};
+  }
+
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -96,6 +101,10 @@ export const ContentContainer = styled.div`
     text-transform: uppercase;
 
     color: ${({ theme }) => theme.colors['base-text']};
+  }
+
+  svg {
+    color: ${({ theme }) => theme.colors['purple-500']};
   }
 
   cursor: pointer;

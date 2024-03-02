@@ -63,7 +63,7 @@ export const FinishedOrderCard = styled.div`
   width: 100%;
   height: 27rem;
   width: 100%;
-  padding: 4rem;
+  padding: 4rem 2rem;
 
   background: ${({ theme }) => theme.colors['base-background']};
 
@@ -78,6 +78,10 @@ export const FinishedOrderCard = styled.div`
     z-index: -1;
     border-radius: 7px 37px 7px 37px;
     background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047f8 98.76%);
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 4rem;
   }
 `;
 

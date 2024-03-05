@@ -3,16 +3,16 @@ import { useCart } from '../../../../hooks/useCart';
 import { formatMoney } from '../../../../utils/formatMoney';
 import { PriceContainer, PriceContent } from './styles';
 
-const DELIVERY_PRICE = 3.5;
-
 export function PriceSection() {
   const { cartItemsTotal, cartQuantity } = useCart();
 
-  const cartTotal = DELIVERY_PRICE + cartItemsTotal;
+  const deliveryPrice = 3.5;
 
+  const cartTotal = deliveryPrice + cartItemsTotal;
+
+  const formattedDeliveryPrice = formatMoney(deliveryPrice);
   const formattedItemsTotal = formatMoney(cartItemsTotal);
   const formattedCartTotal = formatMoney(cartTotal);
-  const formattedDeliveryPrice = formatMoney(DELIVERY_PRICE);
 
   return (
     <PriceContainer>

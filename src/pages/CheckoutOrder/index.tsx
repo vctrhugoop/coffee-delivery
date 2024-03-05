@@ -36,7 +36,7 @@ export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>;
 type ConfirmOrderFormData = OrderData;
 
 export function CheckoutOrder() {
-  const { cleanCartItems } = useCart();
+  const { clearCartItems } = useCart();
 
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
@@ -53,8 +53,7 @@ export function CheckoutOrder() {
     navigate('/finished-order', {
       state: data,
     });
-
-    cleanCartItems();
+    clearCartItems();
 
     toast.success('Pedido realizada com sucesso');
   }

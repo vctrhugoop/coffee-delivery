@@ -12,15 +12,16 @@ interface CoffeeCartCardProps {
 }
 
 export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
-  const { changeCartItemQuantity, removeCartItem } = useCart();
+  const { removeCartItem, increaseCartItemQuantity, decreaseCartItemQuantity } =
+    useCart();
   const { colors } = useTheme();
 
   function handleIncrease() {
-    changeCartItemQuantity(coffee.id, 'increase');
+    increaseCartItemQuantity(coffee.id);
   }
 
   function handleDecrease() {
-    changeCartItemQuantity(coffee.id, 'decrease');
+    decreaseCartItemQuantity(coffee.id);
   }
 
   function handleRemoveCartItem() {

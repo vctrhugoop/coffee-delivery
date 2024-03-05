@@ -1,7 +1,13 @@
-import { produce } from 'immer';
-import { ReactNode, createContext, useEffect, useState } from 'react';
-import { toast } from 'sonner';
+import { ReactNode, createContext, useEffect, useReducer } from 'react';
 import { Coffee } from '../pages/Home/components/CoffeeList';
+import {
+  addCoffe,
+  clearCart,
+  decreaseQuantity,
+  increaseQuantity,
+  removeCoffe,
+} from '../reducers/action';
+import { cartReducer } from '../reducers/reducer';
 
 export interface CartItem extends Coffee {
   quantity: number;
@@ -12,108 +18,80 @@ interface CartContextProps {
   cartQuantity: number;
   cartItemsTotal: number;
   addCoffeeToCart: (coffee: CartItem) => void;
-  changeCartItemQuantity: (
-    cartItemId: string,
-    type: 'increase' | 'decrease',
-  ) => void;
+  increaseCartItemQuantity: (cartItemId: string) => void;
+  decreaseCartItemQuantity: (cartItemId: string) => void;
   removeCartItem: (cartItemId: string) => void;
-  cleanCartItems: () => void;
+  clearCartItems: () => void;
 }
 
 interface CartContextProviderProps {
   children: ReactNode;
 }
 
-const COFFEE_ITENS_STORAGE = '@coffee-delivery:cartItems-v-1-0';
-
 export const CartContext = createContext({} as CartContextProps);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    const storedCartItems = localStorage.getItem(COFFEE_ITENS_STORAGE);
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    { cartItems: [] },
+    (cartState) => {
+      const storedStateAsJSON = localStorage.getItem(
+        '@coffee-delivery:cart-state-1.0.0',
+      );
 
-    if (storedCartItems) {
-      return JSON.parse(storedCartItems);
-    }
-    return [];
-  });
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON);
+      }
 
-  const cartQuantity = cartItems.length;
+      return cartState;
+    },
+  );
 
-  const cartItemsTotal = cartItems.reduce((total, cartItem) => {
+  const cartQuantity = cartState.length;
+
+  const cartItemsTotal = cartState.reduce((total, cartItem) => {
     return total + cartItem.price * cartItem.quantity;
   }, 0);
 
   function addCoffeeToCart(coffee: CartItem) {
-    const coffeeAlreadyExistsInCart = cartItems.findIndex(
-      (cartItems) => cartItems.id === coffee.id,
-    );
-
-    const newCart = produce(cartItems, (draft) => {
-      if (coffeeAlreadyExistsInCart < 0) {
-        draft.push(coffee);
-      } else {
-        draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
-      }
-    });
-    setCartItems(newCart);
-
-    toast.success('Produto adicionado ao carrinho com sucesso!');
+    dispatch(addCoffe(coffee));
   }
 
-  function changeCartItemQuantity(
-    cartItemId: string,
-    type: 'increase' | 'decrease',
-  ) {
-    const newCart = produce(cartItems, (draft) => {
-      const coffeeExistsInCart = cartItems.findIndex(
-        (cartItem) => cartItem.id === cartItemId,
-      );
+  function increaseCartItemQuantity(cartItemId: string) {
+    dispatch(increaseQuantity(cartItemId));
+  }
 
-      if (coffeeExistsInCart >= 0) {
-        const item = draft[coffeeExistsInCart];
-        draft[coffeeExistsInCart].quantity =
-          type === 'increase' ? item.quantity + 1 : item.quantity - 1;
-      }
-    });
-
-    setCartItems(newCart);
+  function decreaseCartItemQuantity(cartItemId: string) {
+    dispatch(decreaseQuantity(cartItemId));
   }
 
   function removeCartItem(cartItemId: string) {
-    const newCart = produce(cartItems, (draft) => {
-      const coffeeExistsInCart = cartItems.findIndex(
-        (cartItem) => cartItem.id === cartItemId,
-      );
-
-      if (coffeeExistsInCart >= 0) {
-        draft.splice(coffeeExistsInCart, 1);
-      }
-    });
-
-    setCartItems(newCart);
-
-    toast.warning('Produto removido do carrinho!');
+    dispatch(removeCoffe(cartItemId));
   }
 
-  function cleanCartItems() {
-    setCartItems([]);
+  function clearCartItems() {
+    dispatch(clearCart());
   }
 
   useEffect(() => {
-    localStorage.setItem(COFFEE_ITENS_STORAGE, JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (cartState) {
+      const stateJSON = JSON.stringify(cartState);
+
+      localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON);
+    }
+  }, [cartState]);
 
   return (
     <CartContext.Provider
       value={{
-        cartItems,
+        cartItems: cartState,
         cartQuantity,
         addCoffeeToCart,
-        changeCartItemQuantity,
         removeCartItem,
         cartItemsTotal,
-        cleanCartItems,
+        decreaseCartItemQuantity,
+        increaseCartItemQuantity,
+        clearCartItems,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import { formatMoney } from '../../../../utils/formatMoney';
 import { PriceContainer, PriceContent } from './styles';
 
 export function PriceSection() {
-  const { cartQuantity, cartItems, cartItemsTotal } = useCart();
+  const { cartQuantity, cartItemsTotal } = useCart();
 
   const deliveryPrice = 3.5;
 

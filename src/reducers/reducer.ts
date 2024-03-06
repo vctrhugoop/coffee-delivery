@@ -13,7 +13,7 @@ interface Action {
   payload?: PayloadTypes;
 }
 
-export function cartReducer(state: CartItem[], action: Action) {
+export function cartReducer(state: CartItem[] = [], action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE: {
       return produce(state, (draft) => {
@@ -21,7 +21,6 @@ export function cartReducer(state: CartItem[], action: Action) {
           const itemAlreadyAdded = draft.find(
             (item) => item.id === action.payload?.coffee?.id,
           );
-
           if (itemAlreadyAdded) {
             itemAlreadyAdded.quantity += action.payload?.coffee?.quantity;
           } else {

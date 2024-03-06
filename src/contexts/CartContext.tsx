@@ -50,7 +50,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const cartQuantity = cartState.length;
 
   const cartItemsTotal = cartState.reduce((total, cartItem) => {
-    return total + cartItem.price * cartItem.quantity;
+    return (total += cartItem.price * cartItem.quantity);
   }, 0);
 
   function addCoffeeToCart(coffee: CartItem) {

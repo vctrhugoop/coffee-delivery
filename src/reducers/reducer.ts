@@ -13,7 +13,7 @@ interface Action {
   payload?: PayloadTypes;
 }
 
-export function cartReducer(state: CartItem[] = [], action: Action) {
+export function cartReducer(state: CartItem[], action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE: {
       return produce(state, (draft) => {

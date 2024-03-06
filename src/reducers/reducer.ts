@@ -26,9 +26,9 @@ export function cartReducer(state: CartItem[], action: Action) {
         );
 
         if (currentCoffee >= 0) {
-          draft[currentCoffee].quantity + 1;
+          draft[currentCoffee].quantity += action.payload?.coffee?.quantity;
         } else {
-          draft.push({ ...action.payload?.coffee, quantity: 1 });
+          draft.push({ ...action.payload?.coffee });
         }
         toast.success('Produto adicionado ao carrinho com sucesso!');
       });

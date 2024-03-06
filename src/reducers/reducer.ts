@@ -10,24 +10,25 @@ interface PayloadTypes {
 
 interface Action {
   type: ActionTypes;
-  payload: PayloadTypes;
+  payload?: PayloadTypes;
 }
 
 export function cartReducer(state: CartItem[], action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE: {
       return produce(state, (draft) => {
-        const { coffee } = action.payload;
-        if (!coffee) {
+        if (!action.payload?.coffee) {
           return state;
         }
 
-        const currentCoffee = state.findIndex((item) => item.id === coffee.id);
+        const currentCoffee = state.findIndex(
+          (item) => item.id === action.payload?.coffee?.id,
+        );
 
         if (currentCoffee >= 0) {
           draft[currentCoffee].quantity + 1;
         } else {
-          draft.push({ ...coffee, quantity: 1 });
+          draft.push({ ...action.payload?.coffee, quantity: 1 });
         }
         toast.success('Produto adicionado ao carrinho com sucesso!');
       });
@@ -35,11 +36,12 @@ export function cartReducer(state: CartItem[], action: Action) {
 
     case ActionTypes.INCREASE_QUANTITY: {
       return produce(state, (draft) => {
-        const { id } = action.payload;
-        if (!id) {
+        if (!action.payload?.id) {
           return state;
         }
-        const itemToIncrement = state.findIndex((item) => item.id === id);
+        const itemToIncrement = state.findIndex(
+          (item) => item.id === action.payload?.id,
+        );
 
         if (itemToIncrement >= 0) {
           draft[itemToIncrement].quantity += 1;
@@ -49,11 +51,12 @@ export function cartReducer(state: CartItem[], action: Action) {
 
     case ActionTypes.DECREASE_QUANTITY: {
       return produce(state, (draft) => {
-        const { id } = action.payload;
-        if (!id) {
+        if (!action.payload?.id) {
           return state;
         }
-        const itemToDecrement = state.findIndex((item) => item.id === id);
+        const itemToDecrement = state.findIndex(
+          (item) => item.id === action.payload?.id,
+        );
 
         if (itemToDecrement <= 0) {
           draft[itemToDecrement].quantity -= 1;

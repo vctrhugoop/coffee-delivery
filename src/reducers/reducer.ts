@@ -14,23 +14,19 @@ interface Action {
 }
 
 export function cartReducer(state: CartItem[], action: Action) {
-  const { payload } = action;
-
   switch (action.type) {
     case ActionTypes.ADD_COFFEE: {
       return produce(state, (draft) => {
-        if (payload?.coffee) {
-          const coffeeAlreadyExistsInCart = state.findIndex(
-            (cartItems) => cartItems.id === action.payload?.id,
+        if (action.payload?.coffee) {
+          const itemAlreadyAdded = draft.find(
+            (item) => item.id === action.payload?.coffee?.id,
           );
 
-          if (coffeeAlreadyExistsInCart < 0) {
-            draft.push(payload.coffee);
+          if (itemAlreadyAdded) {
+            itemAlreadyAdded.quantity += action.payload?.coffee?.quantity;
           } else {
-            draft[coffeeAlreadyExistsInCart].quantity +=
-              payload.coffee.quantity;
+            draft.push(action.payload?.coffee);
           }
-
           toast.success('Produto adicionado ao carrinho com sucesso!');
         }
       });

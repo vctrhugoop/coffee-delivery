@@ -10,47 +10,53 @@ interface PayloadTypes {
 
 interface Action {
   type: ActionTypes;
-  payload?: PayloadTypes;
+  payload: PayloadTypes;
 }
 
 export function cartReducer(state: CartItem[], action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE: {
       return produce(state, (draft) => {
-        if (action.payload?.coffee) {
-          const itemAlreadyAdded = draft.find(
-            (item) => item.id === action.payload?.coffee?.id,
-          );
-          if (itemAlreadyAdded) {
-            itemAlreadyAdded.quantity += action.payload?.coffee?.quantity;
-          } else {
-            draft.push(action.payload?.coffee);
-          }
-          toast.success('Produto adicionado ao carrinho com sucesso!');
+        const { coffee } = action.payload;
+        if (!coffee) {
+          return state;
         }
+
+        const currentCoffee = state.findIndex((item) => item.id === coffee.id);
+
+        if (currentCoffee >= 0) {
+          draft[currentCoffee].quantity + 1;
+        } else {
+          draft.push({ ...coffee, quantity: 1 });
+        }
+        toast.success('Produto adicionado ao carrinho com sucesso!');
       });
     }
 
     case ActionTypes.INCREASE_QUANTITY: {
       return produce(state, (draft) => {
-        const itemToIncrement = draft.find(
-          (cartItems) => cartItems.id === action.payload?.id,
-        );
+        const { id } = action.payload;
+        if (!id) {
+          return state;
+        }
+        const itemToIncrement = state.findIndex((item) => item.id === id);
 
-        if (itemToIncrement?.id) {
-          itemToIncrement.quantity += 1;
+        if (itemToIncrement >= 0) {
+          draft[itemToIncrement].quantity += 1;
         }
       });
     }
 
     case ActionTypes.DECREASE_QUANTITY: {
       return produce(state, (draft) => {
-        const itemToDecrement = draft.find(
-          (cartItems) => cartItems.id === action.payload?.id,
-        );
+        const { id } = action.payload;
+        if (!id) {
+          return state;
+        }
+        const itemToDecrement = state.findIndex((item) => item.id === id);
 
-        if (itemToDecrement?.id && itemToDecrement.quantity > 1) {
-          itemToDecrement.quantity -= 1;
+        if (itemToDecrement <= 0) {
+          draft[itemToDecrement].quantity -= 1;
         }
       });
     }
